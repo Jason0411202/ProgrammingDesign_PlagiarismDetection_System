@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # 設定 API URL 和憑證
-base_url = 'http://140.123.105.184:8080/api/contests/3/judgements' # 取得提交的評測狀態
-# base_url = 'http://140.123.105.184:8080/api/contests/3/submissions' # 取得所有提交
+base_url = os.getenv('JUDGEHOST') + '/api/contests/3/judgements' # 取得提交的評測狀態
+# base_url = os.getenv('JUDGEHOST') + '/api/contests/3/submissions' # 取得所有提交
 
 
 # 設定認證（例如使用 Basic 認證）
