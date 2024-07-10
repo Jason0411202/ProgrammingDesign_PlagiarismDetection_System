@@ -14,7 +14,7 @@ pip install -r requirements.txt
 2. 執行 `main.py` 即可
 
 ## 專案重要檔案與資料夾介紹
-### `code 資料夾`
+### `code 資料夾` (程式執行後生成)
 * 從 Domjudge 中取得的學生程式碼將會存放於此
 
 file tree:
@@ -33,7 +33,7 @@ code
  
 ```
 
-### `report 資料夾`
+### `report 資料夾` (程式執行後生成)
 * 比對結果將會存放於此
 
 file tree:
