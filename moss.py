@@ -6,12 +6,11 @@ from domjudgeAPI import GetContestInfo
 def Moss():
     contestInfo=GetContestInfo() # 取得比賽資訊 (生成 dir 時會用到)
 
-    m = mosspy.Moss(MOSS_ID, "python") # 初始化 Moss
-
     baseDir='./code' # 設定學生程式碼所在的 base 目錄
     contestDir=baseDir+f'/[{CONTEST_ID}] {contestInfo[CONTEST_ID]}'  # base 目錄的下一層目錄為比賽名稱
     allProblemDirName = [name for name in os.listdir(contestDir)] # 取得 contestDir 下的所有目錄名稱
     for problemDirName in allProblemDirName: # 遍歷contestDir 下的所有目錄名稱
+        m = mosspy.Moss(MOSS_ID, "python") # 初始化 Moss
         allCodeDirName = [name for name in os.listdir(f'{contestDir}/{problemDirName}')] # 取得 problemDirName 下的所有目錄名稱
         for codeDirName in allCodeDirName: # 遍歷 problemDirName 下的所有目錄名稱
             finalDir = f'{contestDir}/{problemDirName}/{codeDirName}' # 設定 finalDir，也就是學生程式碼所在的目錄
