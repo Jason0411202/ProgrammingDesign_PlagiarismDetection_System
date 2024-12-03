@@ -39,11 +39,14 @@ def GetNewestSubmissionID():
         judgeDict = Getjudgement_type()
         returnDict = {}
         for i in range(len(jsonResponse)): # 由舊到新的遍歷提交
-            if judgeDict[jsonResponse[i]['id']] == 'AC':
-                if jsonResponse[i]['problem_id'] not in returnDict: # 若 returnDict 中沒有這個 problem_id，則創建之
-                    returnDict[jsonResponse[i]['problem_id']] = {}
-                if len(jsonResponse[i]['team_id'])==9: # 為了過濾掉非學生的提交
-                    returnDict[jsonResponse[i]['problem_id']][jsonResponse[i]['team_id']]=jsonResponse[i]['id'] # 更新 returnDict
+            try:
+                if judgeDict[jsonResponse[i]['id']] == 'AC':
+                    if jsonResponse[i]['problem_id'] not in returnDict: # 若 returnDict 中沒有這個 problem_id，則創建之
+                        returnDict[jsonResponse[i]['problem_id']] = {}
+                    if len(jsonResponse[i]['team_id'])==9: # 為了過濾掉非學生的提交
+                        returnDict[jsonResponse[i]['problem_id']][jsonResponse[i]['team_id']]=jsonResponse[i]['id'] # 更新 returnDict
+            except:
+                continue
 
         #print(returnDict)
         return returnDict # 為一個嵌套的 dict
